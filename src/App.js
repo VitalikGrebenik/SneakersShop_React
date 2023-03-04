@@ -30,6 +30,64 @@ function App() {
   // загрузка страницы
   const [isloading, setIsloading] = useState(true)
 
+  const TestApi = [
+    {
+      "id": "1",
+      "name": "Мужские Кроссовки Nike Blazer Mid Suede ",
+      "price": "12999",
+      "image": "/Img/Sneakers/image_1.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Мужские Кроссовки Nike Air Max 270",
+      "price": "11100",
+      "image": "/Img/Sneakers/image_2.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Кроссовки Puma X Aka Boku Future Rider",
+      "price": "8499",
+      "image": "/Img/Sneakers/image_3.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Мужские Кроссовки Under Armour Curry 8",
+      "price": "16499",
+      "image": "/Img/Sneakers/image_4.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Мужские Кроссовки Nike Kyrie 7",
+      "price": "13499",
+      "image": "/Img/Sneakers/image_5.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Мужские Кроссовки Nike Kyrie 7",
+      "price": "13499",
+      "image": "/Img/Sneakers/image_5.jpg"
+    },
+    {
+      "id": "7",
+      "name": "Мужские Кроссовки Under Armour Curry 8",
+      "price": "16499",
+      "image": "/Img/Sneakers/image_2.jpg"
+    }
+    ,
+    {
+      "id": "8",
+      "name": "Мужские Кроссовки Under Armour Curry 8",
+      "price": "16499",
+      "image": "/Img/Sneakers/image_4.jpg"
+    },
+    {
+      "id": "9",
+      "name": "Мужские Кроссовки Under Armour Curry 8",
+      "price": "16499",
+      "image": "/Img/Sneakers/image_5.jpg"
+    }
+  ]
+
 // По очередная загрузка 
   useEffect(()=>{
     async function ferchData (){
@@ -41,7 +99,7 @@ function App() {
 
         setItems_card_sneakers(cardRespons.data);
         setfavotrotes(favoriteRespons.data);  
-        setarr_card_sneakers(itemsRespons.data); 
+        setarr_card_sneakers(TestApi); 
       } catch (error){
         alert('Ошибка при запросе данных !')
         console.error(error);
@@ -123,6 +181,7 @@ function App() {
   const onclikCart_pop = ()=>{
     return setcartOpened(false)
   }
+  console.log('items_card_sneakers', items_card_sneakers)
   
 
   return (
@@ -138,10 +197,10 @@ function App() {
       }}> 
       <div className="wrapper">
         <Drawer 
-        onRevuve={onRemoveItem} 
-        items_card={items_card_sneakers} 
-        onclikCart_pop={onclikCart_pop} 
-        opened={cartOpened}
+          onRevuve={onRemoveItem} 
+          items_card={items_card_sneakers} 
+          onclikCart_pop={onclikCart_pop} 
+          opened={cartOpened}
         />
         <Header onclikCart={()=>{setcartOpened(true)}}/>
         <Routes>
