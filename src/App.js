@@ -87,14 +87,13 @@ function App() {
       "image": "/Img/Sneakers/image_5.jpg"
     }
   ]
-
 // По очередная загрузка 
   useEffect(()=>{
     async function ferchData (){
       try{
         const favoriteRespons = await axios.get('https://62b9c3b5ff109cd1dc9a8b95.mockapi.io/Favorite'); // закладки
         const cardRespons = await axios.get('https://62b9c3b5ff109cd1dc9a8b95.mockapi.io/card'); // покупки
-        const itemsRespons = await axios.get('https://62b9c3b5ff109cd1dc9a8b95.mockapi.io/items'); // accортимент
+        // const itemsRespons = await axios.get('https://62b9c3b5ff109cd1dc9a8b95.mockapi.io/items'); // accортимент
         setIsloading(false);
 
         setItems_card_sneakers(cardRespons.data);

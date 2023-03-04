@@ -1,11 +1,9 @@
-import React, { useState,useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Card from '../components/Card/Card';
 import axios from 'axios';
-import AppContex from '../Contex';
 
 function Order() {
  
-	// const{onAddToCart, onFavorite}=useContext(AppContex)
 	const[orders, setorders] = useState([])
 	const[isloading, setIsloading] = useState(true)
 
@@ -13,7 +11,6 @@ function Order() {
 		(async ()=>{
 			try{
 				const {data} = await axios.get('https://62b9c3b5ff109cd1dc9a8b95.mockapi.io/order'); 
-				// console.log(data.map((obj)=> obj.items).flat())
 				setorders((data.reduce((prev, obj)=>[...prev,...obj.items],[])))
 				setIsloading(false)
 			} catch(error){
